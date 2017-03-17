@@ -5,7 +5,7 @@
  */
 package voice.leading;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -22,7 +22,7 @@ public class VoiceLeading {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Map<String,Integer> Cromatica = new HashMap<>();
+        Map<String,Integer> Cromatica = new LinkedHashMap<>();
         Cromatica.put("C",1);
         Cromatica.put("C#",2);
         Cromatica.put("Db",2);
@@ -42,9 +42,20 @@ public class VoiceLeading {
         Cromatica.put("B",12);
         
         String Tonica;
-        Tonica="F";
-        Tonality C = new Tonality (Tonica);
         
+        for (Map.Entry<String,Integer> entry: Cromatica.entrySet()){
+            Tonality X = new Tonality (entry.getKey());
+            int x=0;
+            while (x<=6){
+                System.out.println(X.Mode(x));
+                x++;
+                int y=0;
+                while (y<=6){
+                    System.out.println(X.Chord(y));
+                    y++;
+                 }
+            }
+        }
         
     }
 

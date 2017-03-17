@@ -6,6 +6,7 @@
 package voice.leading;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -14,6 +15,9 @@ import java.util.Map;
  */
 
 public class Tonality {
+    private Map<String, Integer> Scale = new LinkedHashMap<>();
+    private Map<String, Integer> Chord;
+    private Map<String, Integer> Mode = new LinkedHashMap<>();
     public Tonality(String Tonic){
         
         Map<String,Integer> Quintas = new HashMap<>();
@@ -38,7 +42,7 @@ public class Tonality {
         Quintas.put("E#", 11);
         Quintas.put("B#", 12);
         
-        Integer i=0;
+        int i=0;
         System.out.println(i);
         for (Map.Entry<String,Integer> entry : Quintas.entrySet()){
             if (entry.getKey().equals(Tonic)){
@@ -46,20 +50,52 @@ public class Tonality {
             }
         }     
         
-        Map<String, Integer> Scale = new HashMap<>();    
-        Integer j;
+            
+        int j;
         j=i+6;
+        int k;
+        k=3;
         while (i<=j){
             for (Map.Entry<String,Integer> entry : Quintas.entrySet()){
                     if (entry.getValue()==i){
-                        Scale.put(entry.getKey(), i);
+                            Scale.put(entry.getKey(), (i-i+k)%7);
                     }
             }
         i=i+1;
+        k=k+4;
         }
         
         System.out.println(Scale);
         
+    }
+    public Map<String,Integer> Mode(int grado){
+        Mode.putAll(Scale);
+        for (Map.Entry<String,Integer> entry : Mode.entrySet()){
+            entry.setValue((entry.getValue()+7-grado)%7);
+        }
+        return Mode;
+    }
+    public Map<String,Integer> Chord(int grado){
+        Chord = new LinkedHashMap<>();
+        for (Map.Entry<String,Integer> entry : Mode.entrySet()){
+            if (entry.getValue()==grado){
+                Chord.put(entry.getKey(),0);
+            }
+                else if (entry.getValue()==(grado+2)%7){
+                    Chord.put(entry.getKey(), 2);                
+                    }
+                else if (entry.getValue()==(grado+4)%7){
+                    Chord.put(entry.getKey(),4);
+                }    
+        }
+        return Chord;
+    }
+
+    /**
+     * @return the Scale
+     */
+    public Map<String, Integer> getScale() {
+        return Scale;
     }
     
 }
