@@ -19,13 +19,20 @@ public class VoiceLeading {
      */
     public static void main(String[] args) {
     // TODO code application logic here
-        //Key GMayor=new KeyMajor("B");
-        //mostrarConjunto.mostrar(GMayor.getEscala());
-        //mostrarConjunto.mostrar(Key.getNotasAlteradas(Key.getAlteraciones("G")));
-        //Cuatriada C=new Cuatriada(6, new KeyMajor("D"));
-        //mostrarConjunto.mostrar(C.getTriada());
-        Acorde a=gestionarAcorde.crearAcorde("CUATRIADA",4,new Key("F"));
-        mostrarConjunto.mostrar(a.getCuatriada());
+        
+        /*for(int x=0;x<7;x++){
+        Acorde a=gestionarAcorde.crearAcorde("CUATRIADA",x,new KeyMinor("Eb","Melodic"));
+        Note[] b=a.getAcorde();
+        mostrarConjunto.mostrar(b);
+        }*/
+        
+        Key Tono=new KeyMinor("Ab","Harmonic");
+        Tono.setMode(4);
+        
+        Acorde Chord=gestionarAcorde.crearAcorde("TRIADA", 1, Tono);
+        mostrarConjunto.mostrar(Chord.getAcorde());
+        //NewJFrame nP = new NewJFrame();
+        //nP.setVisible(true);
         
     }
 }

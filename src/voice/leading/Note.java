@@ -26,20 +26,17 @@ public class Note {
         this.numero=0;
         this.octava=3;
     }
-    
     public Note(String nombre){
         this.pitch=nombre;
         this.octava=3;
         this.numero=Note.noteToInt(nombre);
     }
-    
     public Note setNote(String nota){
         this.pitch=nota;
         this.numero=Note.noteToInt(nota);
         this.octava=3;
         return this;
     }
-    
     public static int noteToInt(String nota){
         String[] ns = {"C","C#","D","D#","E","F","F#","G","G#","A","A#","B"};
         String[] nf = {"C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"};
@@ -61,7 +58,6 @@ public class Note {
         }
         return 0;
     }
-    
     public void setNombre(String nombre){
         this.pitch=nombre;
     }
@@ -77,12 +73,46 @@ public class Note {
     public Integer getNumero(){
         return this.numero;
     }
-    public Integer getOcatava(){
+    public Integer getOctava(){
         return this.octava;
-    }
-    
-    
+    } 
     public String toString(){
         return (this.pitch+this.numero.toString()+this.octava.toString());
     }
-}
+    
+    public static void sostener(Note nota){
+        StringBuffer cadena=new StringBuffer();
+        cadena.append(nota.getNombre());
+        
+        if (nota.getNumero()+1>=12){
+            nota.setOctava(nota.getOctava()+1);
+        }
+        nota.setNumero(nota.getNumero()+1%12);
+        if(cadena.substring(cadena.length()-1).equals("b")){
+                cadena.deleteCharAt((cadena.length()-1));
+        }else{
+            cadena.append("#");
+        }
+        
+        nota.setNombre(cadena.toString());
+
+    }
+    public static void rebajar(Note nota){
+        if (nota.getNumero()-1<0){
+            nota.setOctava(nota.getOctava()-1);
+            nota.setNumero(12);
+        }
+        nota.setNumero(nota.getNumero()-1%12);
+        
+        StringBuffer cadena=new StringBuffer();
+        cadena.append(nota.getNombre());
+        
+        if(cadena.substring(cadena.length()-1).equals("#")){
+                cadena.deleteCharAt(cadena.length()-1);
+        }else{
+            cadena.append("b");
+        }
+        nota.setNombre(cadena.toString());
+
+    }
+    }

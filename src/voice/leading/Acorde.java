@@ -11,4 +11,5 @@ package voice.leading;
  */
 public interface Acorde {
     //public void invertir(int inversion);
+    public Note[] getAcorde();
 }

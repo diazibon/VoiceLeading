@@ -15,6 +15,8 @@ public class Key {
     
     private String tonic;
     
+    
+    
     protected Note escala[]= new Note[7];    
     
     /*public Key(){
@@ -60,7 +62,18 @@ public class Key {
         }
 }
     
+    public static Note[] getMode(int mode, Key tono){
+        Note buf[]=new Note[tono.escala.length];
+        for (int x=0;x<tono.escala.length;x++){
+            buf[x]=tono.escala[(x+mode)%tono.escala.length];
+        }
+        return buf;
+    }
+    public void setMode(int mode){
+        this.escala=Key.getMode(mode, this);
+    }
     public static int getAlteraciones(String tono){
+        
         
         for(int x=0;x<quintas.length;x++){
             if (tono.equals(quintas[x])){
@@ -69,7 +82,6 @@ public class Key {
         }
         return 0;
     }    
-    
     public static String[] getNotasAlteradas(int alteraciones){
         String notasAlteradas[];
         
@@ -89,10 +101,11 @@ public class Key {
         }
         return notasAlteradas;
     }
-    
-    
     public Note[] getEscala(){
         return escala;
+    }
+    public void setEscala(Note[] escala){
+        this.escala=escala;
     }
     
 }

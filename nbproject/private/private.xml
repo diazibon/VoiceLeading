@@ -4,15 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Ibon/Documents/GitHub/VoiceLeading/src/voice/leading/Key.java</file>
-            <file>file:/C:/Users/Ibon/Documents/GitHub/VoiceLeading/src/voice/leading/mostrarConjunto.java</file>
+            <file>file:/C:/Users/Ibon/Documents/GitHub/VoiceLeading/src/voice/leading/Intervals.java</file>
             <file>file:/C:/Users/Ibon/Documents/GitHub/VoiceLeading/src/voice/leading/Note.java</file>
-            <file>file:/C:/Users/Ibon/Documents/GitHub/VoiceLeading/src/voice/leading/Acorde.java</file>
             <file>file:/C:/Users/Ibon/Documents/GitHub/VoiceLeading/src/voice/leading/Triada.java</file>
             <file>file:/C:/Users/Ibon/Documents/GitHub/VoiceLeading/src/voice/leading/Cuatriada.java</file>
             <file>file:/C:/Users/Ibon/Documents/GitHub/VoiceLeading/src/voice/leading/KeyMinor.java</file>
             <file>file:/C:/Users/Ibon/Documents/GitHub/VoiceLeading/src/voice/leading/gestionarAcorde.java</file>
             <file>file:/C:/Users/Ibon/Documents/GitHub/VoiceLeading/src/voice/leading/VoiceLeading.java</file>
-            <file>file:/C:/Users/Ibon/Documents/GitHub/VoiceLeading/src/voice/leading/KeyMajor.java</file>
         </group>
     </open-files>
 </project-private>
